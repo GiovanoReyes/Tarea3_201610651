@@ -38,7 +38,7 @@ public class IPC1Tarea3 {
                           + "3. Mostrar Usuarios Descendente\n "
                           + "4. Menú Principal\n");
                   
-                  System.out.print("No:"); 
+                  System.out.print("Ingresar opción:"); 
                   n = sc.nextInt();
             
             
@@ -54,6 +54,7 @@ public class IPC1Tarea3 {
                         
                         case 2:
                             
+                            System.out.println("\n\n\n");
                             System.out.println("2. Mostrar Usuarios Ascendente");
                             x = false;                            
                         break;
@@ -61,6 +62,7 @@ public class IPC1Tarea3 {
                         
                         case 3:
                             
+                            System.out.println("\n\n\n");
                             System.out.println("3. Mostrar Usuarios Descendente");
                             x = false; // para que no cumpla la condición del do while
                         break;
@@ -68,18 +70,64 @@ public class IPC1Tarea3 {
                 
                         case 4:
                             
+                            System.out.println("\n\n\n");
                             System.out.println("4. Menú Principal");
                             x = true; //si el usuario escoge la opción 4, x tomará el valor true 
                         break;
                 
                     }   
                                                              
-            break;
+            break; // break del case 1 del switch(ingreso)
                 
 
             case 2:
-                System.out.println("Contador de Dígitos");
+                
+                System.out.println("\n\n\n");
+                System.out.println("Contador de Dígitos\n");
                 x = false;
+                
+                
+                int nu = 0;
+                int a = 0;
+                double b = 0 ;
+                boolean val = false;
+                 
+                do {  
+                    
+                  
+                 
+                
+                System.out.println(" 1. Ingresar número\n "
+                          + "2. Mostrar número de dígitos\n "
+                          + "4. Menú Principal\n");
+                  
+                  System.out.print("Ingresar opción:"); 
+                  nu = sc.nextInt();
+                    
+                 
+                  
+                  switch (nu) {
+                      
+                      case 1:
+                                          
+                        System.out.println("Ingresar un número"); 
+                        a = sc.nextInt();
+                      
+                        b = Math.floor( (Math.log(a))/Math.log(10) ) + 1 ;//floor para la parte entera del logaritmo
+                      
+                        val = true;  
+                      break;
+                                           
+                      case 2:
+                              
+                        System.out.println("El número "+ a +" tiene: " + b +" dígitos");        
+                        val = false;                           
+                      break;
+                      
+                  }
+                  
+            } while(val == true);
+                  
                 break;
                 
 
