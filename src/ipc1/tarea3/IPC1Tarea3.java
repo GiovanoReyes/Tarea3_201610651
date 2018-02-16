@@ -2,6 +2,7 @@
 package ipc1.tarea3;
 
 import java.util.Scanner;
+import jdk.nashorn.internal.parser.TokenType;
 
 /**
  *
@@ -96,36 +97,54 @@ public class IPC1Tarea3 {
                     
                   
                  
-                
+                System.out.println("Contador de Dígitos\n");
                 System.out.println(" 1. Ingresar número\n "
                           + "2. Mostrar número de dígitos\n "
-                          + "4. Menú Principal\n");
+                          + "3. Menú Principal\n");
                   
                   System.out.print("Ingresar opción:"); 
                   nu = sc.nextInt();
-                    
+                  System.out.println("\n");  
                  
                   
                   switch (nu) {
                       
                       case 1:
                                           
-                        System.out.println("Ingresar un número"); 
+                        System.out.println("\n\n\nIngresar un número"); 
                         a = sc.nextInt();
-                      
+                        
+                        if((a>0)&&(a<1000000)){
+                                                                     
                         b = Math.floor( (Math.log(a))/Math.log(10) ) + 1 ;//floor para la parte entera del logaritmo
                       
-                        val = true;  
+                        val = true; 
+                        x = false;
+                        
+                        }
+                        
+                        else{
+                            System.out.println("Rango excedido, ingrese un número dentro del rango (0 - 100000)");
+                            val = true;
+                            x = false;
+                        }
                       break;
                                            
                       case 2:
-                              
-                        System.out.println("El número "+ a +" tiene: " + b +" dígitos");        
-                        val = false;                           
-                      break;
-                      
-                  }
+                          
+                          System.out.println("\n\n\n El número "+ a +" tiene: " + b +" dígitos\n");  
+                          x = false;
+                          val = false;
+                          break;
+                         
+                          
+                      case 3:
+                         System.out.println("\n\n\n");
+                         System.out.println("4. Menú Principal");
+                         x = true;
+                 }
                   
+                                  
             } while(val == true);
                   
                 break;
