@@ -243,10 +243,84 @@ public class IPC1Tarea3 {
                 break;
                 
             case 4:
+              
+                
+                System.out.println("\n\n\n");
+                
+                int nume = 0; // variable para el switch
+                boolean val_2=false; // para regresar a este submenú
+                int ma [] [] = new int[6][6];
+                int fil;
+                int col;
+                
+             do {  
+                System.out.println("\n\n\n"); 
                 System.out.println("__________4. Calcular Promedio__________");
-                x = false;
-                break;
-
+                System.out.println(" 1. Ingresar id y notas\n "
+                    + "2. Mostrar tabla\n "
+                     + "3. Menú Principal\n");
+                
+                  System.out.print("Ingresar opción:"); 
+                  nume = sc.nextInt();
+                  System.out.println("\n");
+                
+                switch(nume){
+                    case 1:
+                        Scanner ado = new Scanner(System.in); 
+                        Scanner gio = new Scanner(System.in); 
+      
+                        
+                    
+                         
+                        for(fil = 0; fil<ma.length; fil++){
+               
+                           System.out.println("Ingresar id:");
+                           ma[fil][0] = ado.nextInt();    
+               
+                             for(col = 1; col<5; col++){
+               
+                                System.out.println("Ingresar nota:"+ col );
+               
+                                ma[fil][col] = gio.nextInt();
+               
+                                ma[fil][5]=(ma[fil][1]+ma[fil][2]+ma[fil][3]+ma[fil][4])/4;   
+                            } 
+           
+           
+                        }  
+      
+                            val_2 = true;    
+                            x = false;
+                            break;
+                    
+                    case 2:
+                        
+                      for(fil = 0; fil<ma.length; fil++){             
+                        for(col = 0; col<ma.length; col++){
+                
+                        System.out.print("\t"+ma[fil][col]+" ");
+                
+                        }
+                            System.out.println("");
+                      }  
+                        
+                                           
+                    val_2 = true;    
+                    x = false;
+                    break;    
+                    
+                    case 3:
+                    
+                    System.out.println("\n\n\n");
+                    val_2 = false; 
+                    x = true;        
+                    break;    
+                }   
+                
+             } while(val_2==true);
+             
+             break;
+            
             default:
             
                 System.out.println("\n\n ------Adiós-------");
