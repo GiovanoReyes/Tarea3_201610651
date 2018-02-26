@@ -2,7 +2,6 @@
 package ipc1.tarea3;
 
 import java.util.Scanner;
-import jdk.nashorn.internal.parser.TokenType;
 
 /**
  *
@@ -34,6 +33,21 @@ public class IPC1Tarea3 {
 
                  int n = 0;
                  
+                 Scanner entra = new Scanner(System.in);
+                  String [] vec = new String [5];
+
+                  int cont=5;
+                  int sum=1;
+                  int i;
+                  int contador = 0;
+                  int control = 0;
+                  String entrada=" ";
+                  boolean reg = false;
+               
+                  
+                 
+                 
+             do { 
                   System.out.println(" 1. Ingresar Usuarios\n "
                           + "2. Mostrar Usuarios Ascendente\n "
                           + "3. Mostrar Usuarios Descendente\n "
@@ -41,14 +55,39 @@ public class IPC1Tarea3 {
                   
                   System.out.print("Ingresar opción:"); 
                   n = sc.nextInt();
-            
+                  
+                  
+                  
             
                     switch (n) {
+                        
                 
                         case 1:
                             
                             System.out.println("\n\n\n");
                             System.out.println("Ingresar Usuarios");
+                            
+                            do{
+                                 System.out.println("Ingresar el usuario no. "+(1+contador)+":");
+                                 entrada = entra.next();
+                                 control = 0;
+                            
+                                for(i = 0; i <= contador; i++){
+                               
+                                    if(entrada.equals(vec[i])){ //comparando lo ingresado con el vector en ese indice
+                                    control++; // si es igual incremento control
+                                    }
+                                }
+                                if(control == 0){ // si el nombre ingresado es diferente lo ingresara al vector
+                                    vec[contador] = entrada;
+                                    contador++;
+                                }
+                                else{
+                                   System.err.println("Usuario ya ingresado, ingresar otro"); // mensaje de error
+                                }
+                            } while (contador != 5);
+                            
+                            reg = true;
                             x = false;
                         break;    
                             
@@ -57,6 +96,14 @@ public class IPC1Tarea3 {
                             
                             System.out.println("\n\n\n");
                             System.out.println("2. Mostrar Usuarios Ascendente");
+                            
+                            //Creciente
+                            for(i=0; i<vec.length; i++ ){
+                                System.out.println(sum+"."+vec[i]);
+                                sum++;
+                            }
+                            
+                            reg = true;
                             x = false;                            
                         break;
                         
@@ -65,18 +112,28 @@ public class IPC1Tarea3 {
                             
                             System.out.println("\n\n\n");
                             System.out.println("3. Mostrar Usuarios Descendente");
+                           
+                            // Decreciente
+                            for(i=4; i>=0; i-- ){
+                                System.out.println(cont+"."+vec[i]);
+                                cont--;                
+                            }
+                            
+                            reg = true;
                             x = false; // para que no cumpla la condición del do while
+                            
                         break;
                 
                 
                         case 4:
                             
                             System.out.println("\n\n\n");
+                            reg = false; // para regresar al submenú
                             x = true; //si el usuario escoge la opción 4, x tomará el valor true 
                         break;
-                
+                                                
                     }   
-                                                             
+             } while(reg==true);                                                 
             break; // break del case 1 del switch(ingreso)
                 
 
@@ -275,22 +332,24 @@ public class IPC1Tarea3 {
                         for(fil = 0; fil<ma.length; fil++){
                
                            System.out.println("Ingresar id:");
-                           ma[fil][0] = ado.nextInt();    
+                           ma[fil][0] = ado.nextInt(); // el id se ingresará en la primera columna y varía solamente la fila   
                
-                             for(col = 1; col<5; col++){
+                             for(col = 1; col<5; col++){ // lo comencé en 1 par que comenzara en la segunda columna
                
                                 System.out.println("Ingresar nota:"+ col );
                
                                 ma[fil][col] = gio.nextInt();
                
                                 ma[fil][5]=(ma[fil][1]+ma[fil][2]+ma[fil][3]+ma[fil][4])/4;   
-                            } 
+                                // para el promedio colocaré el valor en la última columna y variando la fila
+                                // sumé cada columna a partir de la segunda columna hasta la antepenúltima para el promedio
+                             } 
            
            
                         }  
       
-                            val_2 = true;    
-                            x = false;
+                            val_2 = true; // variable de retorno a este submenú   
+                            x = false; // variable de retonro a menú principal
                             break;
                     
                     case 2:
