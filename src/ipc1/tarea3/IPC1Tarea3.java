@@ -6,6 +6,9 @@ import java.util.Scanner;
 /**
  *
  * @author Giovanni
+ * 
+ * https://github.com/GiovanoReyes/Tarea3_201610651.git 
+ * 
  */
 public class IPC1Tarea3 {
 
